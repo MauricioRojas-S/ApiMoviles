@@ -1,8 +1,8 @@
-const Class = require('../models/Class');
+const Classes = require('../models/Classes');
 // OBTENER TODOS las clases
-exports.getAllClass = async (req, res) => {
+exports.getAllClasses = async (req, res) => {
     try {
-        const classes = await Class.findAll();
+        const classes = await Classes.findAll();
         res.status(200).json(classes);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener la clase',
@@ -10,9 +10,9 @@ exports.getAllClass = async (req, res) => {
     }
 };
 // OBTENER UNA clase por ID
-exports.getClassById = async (req, res) => {
+exports.getClassesById = async (req, res) => {
     try {
-        const classes = await Class.findByPk(req.params.id);
+        const classes = await Classes.findByPk(req.params.id);
         if (classes) {
             res.status(200).json(classes);
         } else {
@@ -24,19 +24,19 @@ exports.getClassById = async (req, res) => {
     }
 };
 // CREAR un nuevo usuario
-exports.createClass = async (req, res) => {
+exports.createClasses = async (req, res) => {
     try {
-        const newClass = await Class.create(req.body);
-        res.status(201).json(newClass);
+        const newClasses = await Classes.create(req.body);
+        res.status(201).json(newClasses);
     } catch (error) {
         res.status(400).json({ message: 'Error al crear la clase',
         error: error.message });
     }
 };
 // ACTUALIZAR una clase por ID
-exports.updateClass = async (req, res) => {
+exports.updateClasses = async (req, res) => {
     try {
-        const classes = await Class.findByPk(req.params.id);
+        const classes = await Classes.findByPk(req.params.id);
         if (classes) {
             await user.update(req.body);
             res.status(200).json(classes);
@@ -49,9 +49,9 @@ exports.updateClass = async (req, res) => {
     }
 };
 // ELIMINAR una clase por ID
-exports.deleteClass = async (req, res) => {
+exports.deleteClasses = async (req, res) => {
     try {
-        const classes = await Class.findByPk(req.params.id);
+        const classes = await Classes.findByPk(req.params.id);
         if (classes) {
             await classes.destroy();
             res.status(204).send(); // 204 No Content

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./database');
-const Class = sequelize.define('Class', {
+const Classes = sequelize.define('Classes', {
   id: { 
     type: DataTypes.INTEGER, 
     primaryKey: true, 
@@ -18,8 +18,8 @@ const Class = sequelize.define('Class', {
     allowNull: false 
   }
 }, {
-  tableName: 'class',
+  tableName: 'classes',
   timestamps: true,
 });
 
-module.exports = Class;
+module.exports = Classes;
