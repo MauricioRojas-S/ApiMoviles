@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../database/connection');
+const sequelize = require('./database');
 const User = require('./User');
 const Product = require('./Product');
 
@@ -21,7 +21,6 @@ const Factura = sequelize.define('Factura', {
   tableName: 'facturas',
   timestamps: true,
 });
-
 
 User.hasMany(Factura, { foreignKey: 'userId' });
 Factura.belongsTo(User, { foreignKey: 'userId' });
